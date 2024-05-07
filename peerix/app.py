@@ -38,7 +38,7 @@ async def narinfo(req: Request) -> Response:
 
     if req.client.host != "127.0.0.1":
         return Response(content="Permission denied.", status_code=403)
-    
+
     # We do not cache nar-infos.
     # Therefore, dynamically recompute expires at.
     ni = await r_access.narinfo(req.path_params["hash"])
